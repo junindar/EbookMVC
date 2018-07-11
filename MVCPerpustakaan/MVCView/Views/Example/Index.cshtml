@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "~/Views/Shared/SampleLayout.cshtml";
+    ViewBag.Title = "Sample Layout";
+}
+@{
+    var items = new string[] { "Junindar", "Andi", "Budi" };
+}
+<html>
+<head>
+    <title>Contoh Razor</title>
+</head>
+<body>
+    <h1>Daftar pengguna :  @items.Length orang.</h1>
+    <ul>
+        @foreach (var item in items)
+        {
+            string strItems = $"<strong>{item}</strong>";
+            <li>Nama Pengguna : @Html.Raw(strItems)</li>
+        }
+    </ul>
+</body>
+</html>
+
+

@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCController", "MVCControl
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LatihanModel", "LatihanModel", "{03D8041E-9047-4C0D-BE8D-A339DEC801D9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LatihanView", "LatihanView", "{03C8E5A4-1C29-4410-B1C8-E4CC2FB69674}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCView", "MVCView\MVCView.csproj", "{BA0654F4-A6B9-4F98-8097-844D859A360B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,11 +29,16 @@ Global
 		{E2CC5BAB-D6C6-41E1-BD4A-D5730D2359E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2CC5BAB-D6C6-41E1-BD4A-D5730D2359E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2CC5BAB-D6C6-41E1-BD4A-D5730D2359E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA0654F4-A6B9-4F98-8097-844D859A360B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA0654F4-A6B9-4F98-8097-844D859A360B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA0654F4-A6B9-4F98-8097-844D859A360B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA0654F4-A6B9-4F98-8097-844D859A360B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E2CC5BAB-D6C6-41E1-BD4A-D5730D2359E6} = {207F9597-8EC6-4C53-A148-C7D4B751ADC8}
+		{BA0654F4-A6B9-4F98-8097-844D859A360B} = {03C8E5A4-1C29-4410-B1C8-E4CC2FB69674}
 	EndGlobalSection
 EndGlobal

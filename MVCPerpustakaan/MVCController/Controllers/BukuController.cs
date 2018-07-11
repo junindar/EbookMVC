@@ -14,14 +14,20 @@ namespace MVCController.Controllers
             return "Ini Action Index";
         }
 
-        public string Browse()
+        //GET : /Buku/Browse?category=Fiksi
+        public string Browse(string category)
         {
-            return "Ini Action Browse";
+            string message =HttpUtility.HtmlEncode($"Ini Action Browse, Category = {category}");
+            return message;
+
         }
 
-        public string Details()
+        // GET: /Buku/Details/3
+        public string Details(int id)
         {
-            return "Ini Action Details";
+            string message = HttpUtility.HtmlEncode($"Ini Action Details, ID = {id}");
+            return message;
+
         }
     }
 }
