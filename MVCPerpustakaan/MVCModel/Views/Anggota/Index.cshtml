@@ -1,8 +1,11 @@
 ﻿@model IEnumerable<MVCModel.Models.Anggota>
+
 @{
     ViewBag.Title = "Index";
 }
+
 <h2>Index</h2>
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -15,10 +18,28 @@
             @Html.DisplayNameFor(model => model.Umur)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.TanggalLahir)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TanggalDaftar)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Alamat)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.NoTelp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JenisKelamin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Deposito)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
         </th>
         <th></th>
     </tr>
@@ -32,10 +53,28 @@
             @Html.DisplayFor(modelItem => item.Umur)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.TanggalLahir)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TanggalDaftar)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Alamat)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.NoTelp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JenisKelamin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Deposito)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.AnggotaId }) |
@@ -44,4 +83,5 @@
         </td>
     </tr>
 }
+
 </table>

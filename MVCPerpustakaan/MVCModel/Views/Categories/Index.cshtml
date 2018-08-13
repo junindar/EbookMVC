@@ -31,3 +31,11 @@
 }
 
 </table>
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.ListBox("NamaCategory", new SelectList(Model,"ID","NamaCategory"))
+        <br /><br />
+        <input type="submit" value="Submit" />
+    }
+</div>

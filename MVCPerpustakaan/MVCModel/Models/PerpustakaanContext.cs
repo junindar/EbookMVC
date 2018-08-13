@@ -20,7 +20,7 @@ namespace MVCModel.Models
         }
 
         public DbSet<Anggota> Anggota { get; set; }
-        public DbSet<Category> Category { get; set; }
+        public DbSet<Kategori> Category { get; set; }
 
     }
 }

@@ -27,7 +27,7 @@ namespace MVCModel.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category category = db.Category.Find(id);
+            Kategori category = db.Category.Find(id);
             if (category == null)
             {
                 return HttpNotFound();
@@ -46,7 +46,7 @@ namespace MVCModel.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,NamaCategory")] Category category)
+        public ActionResult Create([Bind(Include = "ID,NamaCategory")] Kategori category)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace MVCModel.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category category = db.Category.Find(id);
+            Kategori category = db.Category.Find(id);
             if (category == null)
             {
                 return HttpNotFound();
@@ -78,7 +78,7 @@ namespace MVCModel.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,NamaCategory")] Category category)
+        public ActionResult Edit([Bind(Include = "ID,NamaCategory")] Kategori category)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +96,7 @@ namespace MVCModel.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Category category = db.Category.Find(id);
+            Kategori category = db.Category.Find(id);
             if (category == null)
             {
                 return HttpNotFound();
@@ -109,7 +109,7 @@ namespace MVCModel.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Category category = db.Category.Find(id);
+            Kategori category = db.Category.Find(id);
             db.Category.Remove(category);
             db.SaveChanges();
             return RedirectToAction("Index");

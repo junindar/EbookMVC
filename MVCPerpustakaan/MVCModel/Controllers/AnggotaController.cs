@@ -19,7 +19,7 @@ namespace MVCModel.Controllers
         {
             return View(db.Anggota.ToList());
         }
-        //
+
         // GET: Anggota/Details/5
         public ActionResult Details(int? id)
         {
@@ -46,8 +46,7 @@ namespace MVCModel.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AnggotaId,NamaAnggota," +
-                                                   "Umur,Alamat,NoTelp")] Anggota anggota)
+        public ActionResult Create([Bind(Include = "AnggotaId,NamaAnggota,Umur,TanggalLahir,TanggalDaftar,Alamat,NoTelp,Email,JenisKelamin,Deposito,Status")] Anggota anggota)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +78,7 @@ namespace MVCModel.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AnggotaId,NamaAnggota,Umur,Alamat,NoTelp")] Anggota anggota)
+        public ActionResult Edit([Bind(Include = "AnggotaId,NamaAnggota,Umur,TanggalLahir,TanggalDaftar,Alamat,NoTelp,Email,JenisKelamin,Deposito,Status")] Anggota anggota)
         {
             if (ModelState.IsValid)
             {

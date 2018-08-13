@@ -1,5 +1,7 @@
 ﻿
 
+using System;
+
 namespace MVCModel.Models
 {
     public class PerpustakaanContextInitializer :
@@ -13,11 +15,19 @@ namespace MVCModel.Models
                 NamaAnggota = "Junindar",
                 Alamat = "Jln. Indah dan Permai No. 50",
                 Umur = 35,
-                NoTelp = "08777777"
+                TanggalLahir = DateTime.Now,
+                TanggalDaftar = DateTime.Now,
+                NoTelp = "08777777",
+                Email = "junindar@gmail.com",
+                EmailConfirm =  "junindar@gmail.com",
+                JenisKelamin = "Pria",
+                Deposito = 100000,
+                Status = true
+
             });
-            context.Category.Add(new Category { NamaCategory = "Umum" });
-            context.Category.Add(new Category { NamaCategory = "Teknologi" });
-            context.Category.Add(new Category { NamaCategory = "Sosial" });
+            context.Category.Add(new Kategori { NamaCategory = "Umum" });
+            context.Category.Add(new Kategori { NamaCategory = "Teknologi" });
+            context.Category.Add(new Kategori { NamaCategory = "Sosial" });
 
             base.Seed(context);
         }
