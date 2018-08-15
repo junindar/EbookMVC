@@ -20,6 +20,7 @@ namespace MVCPerpustakaan.Models
         [Display(Name = "Password")]
         public string Password { get; set; }
 
+        [Required]
         [Display(Name = "User Role")]
         public string Role { get; set; }
 

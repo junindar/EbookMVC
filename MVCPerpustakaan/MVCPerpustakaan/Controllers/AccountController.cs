@@ -57,8 +57,9 @@ namespace MVCPerpustakaan.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
+           return RedirectToAction("AccessDenied", "Error");
+            //ViewBag.ReturnUrl = returnUrl;
+            //return View();
         }
 
         //

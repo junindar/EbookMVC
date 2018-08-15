@@ -1,7 +1,8 @@
 ﻿
 using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Web.Mvc;
+
 
 namespace MVCPerpustakaan.Models
 {
@@ -23,15 +24,18 @@ namespace MVCPerpustakaan.Models
         [DataType(DataType.MultilineText)]
         public string Deskripsi { get; set; }
 
-        [HiddenInput]
+        [Display(Name = "Kategori")]
         public int KategoriId { get; set; }
 
-        [Required]
-        [Display(Name = "Kategori Buku")]
-        public Kategori Kategori { get; set; }
+        [Display(Name = "Kategori")]
+        public virtual Kategori Kategori { get; set; }
 
-        [Display(Name = "Jumlah Buku")]
-        [Range(0, Int32.MaxValue)]
-        public string Jumlah { get; set; }
+
+        [Display(Name = "Status Buku")]
+        public bool Status { get; set; }
+
+        [DisplayName("Gambar Buku")]
+        [DataType(DataType.Upload)]
+        public string Gambar { get; set; }
     }
 }

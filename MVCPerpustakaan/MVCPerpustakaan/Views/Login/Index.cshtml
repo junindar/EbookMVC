@@ -1,0 +1,41 @@
+﻿@model MVCPerpustakaan.ViewModels.LoginVM
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/login.css")" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="card card-container">
+            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            @*@using (Html.BeginForm(new { @class = "form-signin" }))
+            {*@
+                <form action="/Login/Index" method="post" class="form-signin">
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @*<span id="reauth-email" class="reauth-email"></span>
+                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>*@
+
+
+                    @Html.TextBoxFor(model => model.Username, new { @class = "form-control", @placeholder = "Username", @autofocus = "autofocus", required = "required" })
+                    @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @placeholder = "Password",  required = "required", type = "password" })
+                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+                </form>
+            @*}*@
+
+
+        </div>
+    </div>
+</body>
+</html>

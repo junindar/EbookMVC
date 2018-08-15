@@ -64,6 +64,6 @@ C:\Users\Junindar\Source\Repos\EbookMVC\MVCPerpustakaan\MVCPerpustakaan\bin\Micr
 C:\Users\Junindar\Source\Repos\EbookMVC\MVCPerpustakaan\MVCPerpustakaan\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Junindar\Source\Repos\EbookMVC\MVCPerpustakaan\MVCPerpustakaan\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Junindar\Source\Repos\EbookMVC\MVCPerpustakaan\MVCPerpustakaan\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\Junindar\Source\Repos\EbookMVC\MVCPerpustakaan\MVCPerpustakaan\obj\Debug\MVCPerpustakaan.csprojResolveAssemblyReference.cache
 C:\Users\Junindar\Source\Repos\EbookMVC\MVCPerpustakaan\MVCPerpustakaan\obj\Debug\MVCPerpustakaan.dll
 C:\Users\Junindar\Source\Repos\EbookMVC\MVCPerpustakaan\MVCPerpustakaan\obj\Debug\MVCPerpustakaan.pdb
+C:\Users\Junindar\Source\Repos\EbookMVC\MVCPerpustakaan\MVCPerpustakaan\obj\Debug\MVCPerpustakaan.csprojResolveAssemblyReference.cache

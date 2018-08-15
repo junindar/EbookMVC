@@ -13,6 +13,6 @@ namespace MVCPerpustakaan.Models
         [Display(Name = "Nama Kategori")]
         public string NamaKategori { get; set; }
 
-        public ICollection<Buku> Bukus { get; set; }
+        public List<Buku> Bukus { get; set; }
     }
 }
