@@ -1,4 +1,5 @@
-﻿@model IEnumerable<MVCPerpustakaan.Models.Buku>
+﻿@using MVCPerpustakaan.Helpers
+@model IEnumerable<MVCPerpustakaan.Models.Buku>
 
 @{
     ViewBag.Title = "Index";
@@ -23,9 +24,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Penerbit)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Deskripsi)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Status)
         </th>
@@ -37,9 +38,9 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Kategori.NamaKategori)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Judul)
         </td>
@@ -49,19 +50,20 @@
         <td>
             @Html.DisplayFor(modelItem => item.Penerbit)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Deskripsi)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Status)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Gambar)
+            @Html.GambarBuku(item.Gambar, "58px", "60px")
+            @*@Html.DisplayFor(modelItem => item.Gambar)*@
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.BukuId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BukuId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BukuId })
         </td>
     </tr>
 }

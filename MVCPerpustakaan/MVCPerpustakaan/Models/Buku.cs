@@ -1,14 +1,14 @@
-﻿
-using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Web;
 
 
 namespace MVCPerpustakaan.Models
 {
     public class Buku
     {
-        public int ID { get; set; }
+        public int BukuId { get; set; }
         [Required]
         [Display(Name = "Judul Buku")]
         public string Judul { get; set; }
@@ -27,15 +27,18 @@ namespace MVCPerpustakaan.Models
         [Display(Name = "Kategori")]
         public int KategoriId { get; set; }
 
-        [Display(Name = "Kategori")]
-        public virtual Kategori Kategori { get; set; }
+       
 
 
         [Display(Name = "Status Buku")]
         public bool Status { get; set; }
 
-        [DisplayName("Gambar Buku")]
-        [DataType(DataType.Upload)]
+        [DisplayName("Upload Buku")]
         public string Gambar { get; set; }
+
+
+        [Display(Name = "Kategori")]
+        public virtual Kategori Kategori { get; set; }
+     
     }
 }

@@ -7,7 +7,7 @@
 <h2>Edit</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Buku", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -15,7 +15,8 @@
         <h4>Buku</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.ID)
+        @Html.HiddenFor(model => model.BukuId)
+        @Html.HiddenFor(model => model.Gambar)
 
         <div class="form-group">
             @Html.LabelFor(model => model.Judul, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -70,8 +71,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Gambar, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Gambar, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Gambar, "", new { @class = "text-danger" })
+                <input type="file" name="ImageFile" id="ImageFile" onchange="show(this)" /><br />
+                <img id="user_img" height="100" width="90" style="border: solid" src="/Images/@Model.Gambar" />
             </div>
         </div>
 
@@ -89,4 +90,16 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+<script type="text/javascript">
+
+    function show(input) {
+      if (input.files && input.files[0]) {
+      var filerdr = new FileReader();
+      filerdr.onload = function (e) {
+         $('#user_img').attr('src', e.target.result);
+      }
+      filerdr.readAsDataURL(input.files[0]);
+   }
+}
+</script> 
 }

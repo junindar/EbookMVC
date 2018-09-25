@@ -1,9 +1,12 @@
 ﻿using MVCPerpustakaan.ViewModels;
 using System;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using MVCPerpustakaan.Helpers;
 using MVCPerpustakaan.Models;
+
 
 namespace MVCPerpustakaan.Controllers
 {
@@ -31,10 +34,11 @@ namespace MVCPerpustakaan.Controllers
                         {
                             FormsAuthentication.SetAuthCookie(model.Username, false);
                             var authTicket = new FormsAuthenticationTicket(1, user.Username, DateTime.Now, 
-                                DateTime.Now.AddMinutes(20), false, user.Role);
+                                DateTime.Now.AddYears(1), false, user.Role);
                             string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
                             var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
                             HttpContext.Response.Cookies.Add(authCookie);
+                            SessionManager.Set("Username", model.Username);
                             return RedirectToAction("Index", "Home");
                         }
                         else
@@ -62,10 +66,59 @@ namespace MVCPerpustakaan.Controllers
             return View(model);
         }
 
+        [Authorize]
+        public ActionResult ChangePassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangePassword(ChangePasswordViewModel model)
+        {
+            try
+            {
+
+                if (ModelState.IsValid)
+                {
+                    var curUsername = SessionManager.Get<string>("Username");
+                    var user = db.Users.FirstOrDefault(u =>
+                    u.Username.ToLower().Equals(curUsername.ToLower()));
+                    if (user != null)
+                    {
+                        if (user.Password == model.OldPassword)
+                        {
+                            user.Password = model.NewPassword;
+                            db.SaveChanges();
+                            ModelState.AddModelError("", "Password berhasil diganti.");
+
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("", "Password lama salah.");
+                        }
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Username tidak dikenal.");
+                    }
+                }
+              
+
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+            }
+            return View();
+        }
+
+
         [AllowAnonymous]
         public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();
+            Session.Abandon();
             return RedirectToAction("Index", "Login");
         }
     }

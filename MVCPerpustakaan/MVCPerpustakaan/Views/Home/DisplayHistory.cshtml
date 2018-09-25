@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MVCPerpustakaan.ViewModels.HistoryVM>
+@using MVCPerpustakaan.Helpers;
+@{
+    ViewBag.Title = "My History Order";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (Model != null && Model.Any())
+{
+   
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row">
+            <div class="col-md-12">
+                <table id="tableOrder" class="table table-hover">
+                    <tr>
+                        <th></th>
+                        <th>Penulis</th>
+                        <th>Judul Buku</th>
+                        <th>Tanggal Pinjam</th>
+                        <th>Tanggal Kembali</th>
+                        <th>Statu Peminjaman</th>
+                        <th>Action</th>
+                    </tr>
+                    @foreach (var history in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.GambarBuku(history.Gambar, "58px", "60px")
+                            </td>
+                            <td>@history.Penulis</td>
+                            <td>@history.Judul</td>
+                            <td>@history.OrderDate</td>
+                            <td>@history.ReturnDate</td>
+                            <td>@history.Status</td>
+                            <td>@Html.ActionLink("Detail", "DetailBuku", "Home", new { id = @history.BukuId },null)</td>
+
+                        </tr>
+                        @*@Html.HiddenFor(p => history.BukuId)*@
+                    }
+                </table>
+            </div>
+        </div>
+      
+    
+
+}
+else if (string.IsNullOrEmpty(ViewBag.Success))
+{
+    <div class="alert alert-warning" role="alert"> Tidak ada history.</div>
+}
+else if (ViewBag.Success == "Error")
+{
+    <div class="alert alert-danger" role="alert"> Tidak dapat menampilkan history. Silahkan hubungi Admin.</div>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+}

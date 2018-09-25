@@ -26,6 +26,14 @@ namespace MVCPerpustakaan
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+
+            //bundles.Add(new StyleBundle("~/Content/css").Include(
+            //        "~/Content/bootstrap.min.css",
+            //        "~/Content/metisMenu.min.css",
+            //        "~/Content/sb-admin-2.css",
+            //        "~/Content/font-awesome.min.css"));
+
         }
     }
 }

@@ -1,0 +1,90 @@
+﻿@using MVCPerpustakaan.Helpers
+@model MVCPerpustakaan.Models.Buku
+
+@{
+    ViewBag.Title = "Detail Buku";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="row">
+        <div class="col-md-4">
+            @Html.GambarBuku(Model.Gambar, "300px", "360px")
+        </div>
+        <div class="col-md-8">
+            <h3 class="text-danger bg-dark">@Model.Judul</h3>
+            <h5 class="text-success">@Model.Penulis</h5>
+            <h5 class="text-success">@Model.Penerbit</h5>
+            <h5 class="text-success">@Model.Kategori.NamaKategori</h5>
+            <h5 style="text-align: justify">@Model.Deskripsi</h5>
+            @{
+                var strStatus = Model.Status ? "Buku Tersedia" : "Buku Tidak Tersedia";
+            }
+            <h4 class="text-danger bg-dark">@strStatus</h4>
+           
+                @{
+                    if (Model.Status)
+                    {
+                    <p style="text-align: justify">
+                        <a class="btn btn-success" role="button"
+                           data-bukuId="@Model.BukuId"
+                           data-bukuImage="@Model.Gambar"
+                           data-bukuJudul="@Model.Judul"
+                           data-bukuPenulis="@Model.Penulis"
+                           style="margin-top: 10px;">
+                            <span class="glyphicon glyphicon-shopping-cart"></span>  Add To Card
+                        </a>
+
+                    </p>
+
+                    }
+                }
+            
+        </div>
+    </div>
+
+
+</div>
+
+<script type="text/javascript">
+
+
+    $(document)
+          .ready(function() {
+
+
+                $('.btn-success')
+                    .click(function() {
+
+                        var selectedProduct = {
+                            BukuId: $(this).attr('data-bukuId'),
+                            Gambar: $(this).attr('data-bukuImage'),
+                            Judul: $(this).attr('data-bukuJudul'),
+                            Penulis: $(this).attr('data-bukuPenulis')
+                        };
+
+
+                        $.ajax({
+                            type: 'POST',
+                            url: '@Url.Action("AddShoppingCart", "Home")',
+                            data: selectedProduct,
+                            success: function(response) {
+                                alert(response.message);
+                                $('#myOrder').text("My Order(" + response.jumlah + ")");
+                            },
+                            error: function(response) {
+                                alert(response.message);
+                            }
+
+                        });
+
+                    });
+
+
+          });
+</script>

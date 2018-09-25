@@ -1,0 +1,108 @@
+﻿@using Microsoft.AspNet.Identity
+@using MVCPerpustakaan.Helpers
+@using MVCPerpustakaan.Models
+@{
+    List<Buku> bukuList = SessionManager.Get<List<Buku>>("ShoppingCart");
+    var iChart = 0;
+    if (bukuList != null && bukuList.Any())
+    {
+        iChart = bukuList.Count();
+    }
+}
+@if (User.IsInRole("Admin"))
+{
+   
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Daftar Buku", "DaftarBuku", "Home")</li>
+        <li>@Html.ActionLink("History Peminjaman Buku", "DisplayHistory", "Home")</li>
+        <li>@Html.ActionLink("My Order(" + @iChart + ")", "DisplayMyOrder", "Home", null, new { id = "myOrder" })</li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        
+        <li class="btn-group nav">
+            <button type="button" class="btn navbar-btn" style="background-color:forestgreen">@User.Identity.Name</button>
+            <button type="button" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li>@Html.ActionLink("User", "Index", "Users")</li>
+                <li>@Html.ActionLink("Kategori Buku", "Index", "Kategori")</li>
+                <li>@Html.ActionLink("Buku", "Index", "Buku")</li>
+                <li>@Html.ActionLink("Pengembalian Buku", "DaftarPeminjam", "Buku")</li>
+                <li>@Html.ActionLink("Change Password", "ChangePassword", "Login")</li>
+            </ul>
+        </li>
+            <li>
+                <a href="@Url.Action("LogOff", "Login")">
+                    Log off
+                    <span class="glyphicon glyphicon-log-out"></span>
+                </a>
+            </li>
+   
+        
+    </ul>
+}
+else if (User.IsInRole("Staff"))
+{
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Daftar Buku", "DaftarBuku", "Home")</li>
+        <li>@Html.ActionLink("History Peminjaman Buku", "DisplayHistory", "Home")</li>
+        <li>@Html.ActionLink("My Order(" + @iChart + ")", "DisplayMyOrder", "Home", null, new { id = "myOrder" })</li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+
+        <li class="btn-group nav">
+            <button type="button" class="btn navbar-btn" style="background-color:forestgreen">@User.Identity.Name</button>
+            <button type="button" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li>@Html.ActionLink("Buku", "Index", "Buku")</li>
+                <li>@Html.ActionLink("Pengembalian Buku", "DaftarPeminjam", "Buku")</li>
+                <li>@Html.ActionLink("Change Password", "ChangePassword", "Login")</li>
+            </ul>
+        </li>
+        <li>
+            <a href="@Url.Action("LogOff", "Login")">
+                Log off
+                <span class="glyphicon glyphicon-log-out"></span>
+            </a>
+        </li>
+
+
+    </ul>
+
+}
+else if (User.IsInRole("General"))
+{
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Daftar Buku", "DaftarBuku", "Home")</li>
+        <li>@Html.ActionLink("History Peminjaman Buku", "DisplayHistory", "Home")</li>
+        <li>@Html.ActionLink("My Order(" + @iChart + ")", "DisplayMyOrder", "Home", null, new { id = "myOrder" })</li>
+    </ul>
+   
+    <ul class="nav navbar-nav navbar-right">
+
+        <li class="btn-group nav">
+            <button type="button" class="btn navbar-btn" style="background-color:forestgreen">@User.Identity.Name</button>
+            <button type="button" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li>@Html.ActionLink("Change Password", "ChangePassword", "Login")</li>
+            </ul>
+        </li>
+        <li>
+            <a href="@Url.Action("LogOff", "Login")">
+                Log off
+                <span class="glyphicon glyphicon-log-out"></span>
+            </a>
+        </li>
+
+
+    </ul>
+}

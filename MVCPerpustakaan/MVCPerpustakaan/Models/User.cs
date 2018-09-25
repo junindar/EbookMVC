@@ -1,5 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
 
 
 namespace MVCPerpustakaan.Models
@@ -25,6 +26,8 @@ namespace MVCPerpustakaan.Models
         public string Role { get; set; }
 
         public bool Status { get; set; }
+
+        public List<Order> Orders { get; set; }
 
     }
 }
