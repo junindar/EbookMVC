@@ -9,7 +9,7 @@ namespace MVCPerpustakaan.Controllers
     public class ErrorController : Controller
     {
         // GET: Error
-        public ActionResult AccessDenied()
+        public ActionResult Index()
         {
             return View();
         }

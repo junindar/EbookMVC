@@ -1,11 +1,9 @@
-﻿@model IEnumerable<MVCPerpustakaan.Models.Buku>
+﻿@model List<MVCPerpustakaan.Models.Buku>
 @using MVCPerpustakaan.Helpers;
 <div class="row">
     @if (Model != null && Model.Any())
     {
-
-
-        foreach (var buku in Model)
+    foreach (var buku in Model)
         {
 
             <div class="col-md-4">
@@ -28,7 +26,7 @@
                                        data-bukuJudul="@buku.Judul"
                                        data-bukuPenulis="@buku.Penulis"
                                        style="margin-top: 10px;">
-                                        <span class="glyphicon glyphicon-shopping-cart"></span>  Add To Card
+                                        <span class="glyphicon glyphicon-shopping-cart"></span>  Add To Cart
                                     </a>
 
                                 </p>

@@ -16,12 +16,13 @@ namespace MVCPerpustakaan.Controllers
         // GET: Login
         public ActionResult Index()
         {
+            FormsAuthentication.SignOut();
+            Session.Clear();
             return View();
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Index(LoginVM model)
+       public ActionResult Index(LoginVM model)
         {
             try
             {
@@ -118,7 +119,7 @@ namespace MVCPerpustakaan.Controllers
         public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();
-            Session.Abandon();
+            Session.Clear();
             return RedirectToAction("Index", "Login");
         }
     }

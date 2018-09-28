@@ -35,7 +35,8 @@ namespace MVCPerpustakaan.Controllers
         public ActionResult DaftarBuku()
         {
             var listBuku = db.Bukus.Where(
-               c => c.Kategori.NamaKategori.ToLower().Equals("teknologi")).ToList();
+               c => c.Kategori.NamaKategori.ToLower().
+               Equals("teknologi")).ToList();
             return View(listBuku);
         }
 
@@ -189,8 +190,7 @@ namespace MVCPerpustakaan.Controllers
 
             return View();
         }
-
-
+        
         public ActionResult DetailBuku(int id)
         {
             try
@@ -211,7 +211,6 @@ namespace MVCPerpustakaan.Controllers
             {
 
                 ModelState.AddModelError("", "Unable to process. " + ex.Message);
-                //ViewBag.Success = "Error";
             }
             return View();
         }

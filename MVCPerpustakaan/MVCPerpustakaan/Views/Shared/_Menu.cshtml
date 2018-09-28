@@ -1,5 +1,4 @@
-﻿@using Microsoft.AspNet.Identity
-@using MVCPerpustakaan.Helpers
+﻿@using MVCPerpustakaan.Helpers
 @using MVCPerpustakaan.Models
 @{
     List<Buku> bukuList = SessionManager.Get<List<Buku>>("ShoppingCart");
@@ -13,15 +12,20 @@
 {
    
     <ul class="nav navbar-nav">
-        <li>@Html.ActionLink("Daftar Buku", "DaftarBuku", "Home")</li>
-        <li>@Html.ActionLink("History Peminjaman Buku", "DisplayHistory", "Home")</li>
-        <li>@Html.ActionLink("My Order(" + @iChart + ")", "DisplayMyOrder", "Home", null, new { id = "myOrder" })</li>
+        <li>@Html.ActionLink("Daftar Buku", 
+           "DaftarBuku", "Home")</li>
+        <li>@Html.ActionLink("History Peminjaman Buku", 
+           "DisplayHistory", "Home")</li>
+        <li>@Html.ActionLink("My Order(" + @iChart + ")", 
+           "DisplayMyOrder", "Home", null, new { id = "myOrder" })</li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
         
         <li class="btn-group nav">
-            <button type="button" class="btn navbar-btn" style="background-color:forestgreen">@User.Identity.Name</button>
-            <button type="button" class="btn navbar-btn dropdown-toggle" data-toggle="dropdown">
+            <button type="button" class="btn navbar-btn" 
+                    style="background-color:forestgreen">@User.Identity.Name</button>
+            <button type="button" 
+                    class="btn navbar-btn dropdown-toggle" data-toggle="dropdown">
                 <span class="caret"></span>
                 <span class="sr-only">Toggle Dropdown</span>
             </button>

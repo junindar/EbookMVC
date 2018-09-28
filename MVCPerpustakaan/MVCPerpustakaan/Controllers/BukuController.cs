@@ -52,7 +52,8 @@ namespace MVCPerpustakaan.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Buku buku, HttpPostedFileBase ImageFile)
+        public ActionResult Create(Buku buku,
+            HttpPostedFileBase ImageFile)
         {
             if (ModelState.IsValid)
             {
@@ -72,7 +73,8 @@ namespace MVCPerpustakaan.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.KategoriId = new SelectList(db.Kategoris, "KategoriId", "NamaKategori", buku.KategoriId);
+            ViewBag.KategoriId = new SelectList(db.Kategoris, 
+                "KategoriId", "NamaKategori", buku.KategoriId);
             return View(buku);
         }
 
