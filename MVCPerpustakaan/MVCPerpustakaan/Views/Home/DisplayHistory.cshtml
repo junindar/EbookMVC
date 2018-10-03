@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MVCPerpustakaan.ViewModels.HistoryVM>
+﻿@model List<MVCPerpustakaan.ViewModels.HistoryVM>
 @using MVCPerpustakaan.Helpers;
 @{
     ViewBag.Title = "My History Order";
@@ -27,17 +27,21 @@
                     {
                         <tr>
                             <td>
-                                @Html.GambarBuku(history.Gambar, "58px", "60px")
+                                @Html.GambarBuku(history.Gambar, 
+                               "58px", "60px")
                             </td>
                             <td>@history.Penulis</td>
                             <td>@history.Judul</td>
                             <td>@history.OrderDate</td>
                             <td>@history.ReturnDate</td>
                             <td>@history.Status</td>
-                            <td>@Html.ActionLink("Detail", "DetailBuku", "Home", new { id = @history.BukuId },null)</td>
+                            <td>@Html.ActionLink("Detail", "DetailBuku",
+                               "Home",
+                               new { id = @history.BukuId },null)
+                            </td>
 
                         </tr>
-                        @*@Html.HiddenFor(p => history.BukuId)*@
+
                     }
                 </table>
             </div>
